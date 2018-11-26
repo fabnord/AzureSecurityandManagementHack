@@ -16,11 +16,11 @@
             "metadata": {
                 "description": "The base URI where artifacts required by this template are located."
             },
-            "defaultValue": "https://raw.githubusercontent.com/rkuehfus/AzureSecurityandManagementHack/master/"
+            "defaultValue": "https://raw.githubusercontent.com/fabnord/AzureSecurityandManagementHack/master/"
         },
         "retentionPolicy": {
             "type": "int",
-            "defaultValue": 90,
+            "defaultValue": 0,
             "metadata": {
                 "description": ""
             }
@@ -273,7 +273,7 @@
                         "value": "[resourceGroup().location]"
                     },
                     "WorkspaceName": {
-                        "value": "[concat(parameters('envPrefixName'), 'hacklogworkspace')]"
+                        "value": "[concat(parameters('envPrefixName'), 'MonitorHackLogWorkspace')]"
                     },
                     "retentionPolicy": {
                         "value": "[parameters('retentionPolicy')]"
@@ -299,7 +299,7 @@
                         "value": "[resourceGroup().location]"
                     },
                     "appName": {
-                        "value": "[concat(parameters('envPrefixName'), 'hackAppInsights')]"
+                        "value": "[concat(parameters('envPrefixName'), 'MonitorHackAppInsights')]"
                     },
                     "webSrvPublicIP": {
                         "value": "[concat('http://', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('webSrvPublicIP')), '2015-06-15').dnsSettings.fqdn)]"
