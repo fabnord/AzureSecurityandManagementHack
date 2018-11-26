@@ -4,6 +4,7 @@
     "parameters": {
         "WorkspaceLocation": {
             "type": "string",
+            "defaultValue": "westeurope",
             "metadata": {
                 "description": ""
             }
@@ -16,6 +17,7 @@
         },
         "retentionPolicy": {
             "type": "int",
+            "defaultValue": 0,
             "metadata": {
                 "description": ""
             }
@@ -81,20 +83,20 @@
     },
     "resources": [
         {
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('WorkspaceName')]",
             "location": "[parameters('WorkspaceLocation')]",
             "properties": {
                 "sku": {
-                    "name": "pergb2018"
+                    "name": "Free"
                 },
                 "retentionInDays": "[parameters('retentionPolicy')]"
             },
             "resources": [
                 {
                     "name": "AzureActivityLog",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "apiVersion": "2015-11-01-preview",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -106,7 +108,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk1",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -121,7 +123,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk2",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -136,7 +138,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk3",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -151,7 +153,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk4",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -166,7 +168,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk5",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -181,7 +183,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk6",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -196,7 +198,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk7",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -211,7 +213,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LogicalDisk8",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -226,7 +228,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Memory1",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -241,7 +243,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Memory2",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -256,7 +258,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Network1",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -271,7 +273,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Network2",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -286,7 +288,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Network3",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -301,7 +303,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "CPU1",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -316,7 +318,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "CPU2",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -331,7 +333,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "System",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -351,7 +353,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Application",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -371,7 +373,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Linux",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -405,7 +407,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "LinuxPerfCollection",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -417,7 +419,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "IISLog",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -429,7 +431,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "Syslog",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -458,7 +460,7 @@
                 },
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "type": "datasources",
+                    "type": "dataSources",
                     "name": "SyslogCollection",
                     "dependsOn": [
                         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
